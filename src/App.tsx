@@ -1,35 +1,46 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import StudentRoutes from "./routes/Student";
+import StaffRoutes from "./routes/Staff";
+import ChiefWardenRoutes from "./routes/ChiefWarden";
+import { getLocalData } from "./utils/localStorage";
+import NotFound from "./pages/NotFound";
+import { AppDispatch, RootState } from "./store/store";
+import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const currentUser = getLocalData();
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/students/*" element={<StudentRoutes />} />
+        <Route path="/chief-wardens/*" element={<ChiefWardenRoutes />} />
+        <Route path="/staffs/*" element={<StaffRoutes />} />
+        {/* Home route */}
+        <Route
+          path="/"
+          element={
+            //if logged in
+            currentUser?.role === "student" ? (
+              <Navigate to="/students/dashboard" />
+            ) : (
+              // not logged in
+              <Navigate to="/students/login" />
+            )
+          }
+        />
+        {/* not found */}
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+//  type of the useDispatch function
+type DispatchFunc = () => AppDispatch;
+// useDispatch function with type === useAppDispatch
+export const useAppDispatch: DispatchFunc = useDispatch;
+
+//use Selector function with types === useAppSelector
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+export default App;
