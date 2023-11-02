@@ -6,32 +6,36 @@ import { getLocalData } from "./utils/localStorage";
 import NotFound from "./pages/NotFound";
 import { AppDispatch, RootState } from "./store/store";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   const currentUser = getLocalData();
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/students/*" element={<StudentRoutes />} />
-        <Route path="/chief-wardens/*" element={<ChiefWardenRoutes />} />
-        <Route path="/staffs/*" element={<StaffRoutes />} />
-        {/* Home route */}
-        <Route
-          path="/"
-          element={
-            //if logged in
-            currentUser?.role === "student" ? (
-              <Navigate to="/students/dashboard" />
-            ) : (
-              // not logged in
-              <Navigate to="/students/login" />
-            )
-          }
-        />
-        {/* not found */}
-        <Route path="/*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/students/*" element={<StudentRoutes />} />
+          <Route path="/chief-wardens/*" element={<ChiefWardenRoutes />} />
+          <Route path="/staffs/*" element={<StaffRoutes />} />
+          {/* Home route */}
+          <Route
+            path="/"
+            element={
+              //if logged in
+              currentUser?.role === "student" ? (
+                <Navigate to="/students/dashboard" />
+              ) : (
+                // not logged in
+                <Navigate to="/students/login" />
+              )
+            }
+          />
+          {/* not found */}
+          <Route path="/*" element={<NotFound />} />
+        </Routes>
+      </BrowserRouter>
+      <Toaster />
+    </>
   );
 }
 
