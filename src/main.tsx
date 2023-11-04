@@ -1,7 +1,7 @@
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
-import { ErrorBoundary } from "./ErrorBoundary.tsx";
+import { ErrorBoundary } from "./utils/ErrorBoundary.tsx";
 import ErrorPage from "./pages/ErrorPage.tsx";
 import { Provider } from "react-redux";
 import store from "./store/store.ts";

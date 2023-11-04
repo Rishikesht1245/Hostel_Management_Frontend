@@ -40,7 +40,7 @@ const LoggedInHeaderButton = ({ children, currentUser, role }: Props) => {
             });
           }}
           //     while hovering the group then only logout will be visible
-          className="invisible px-4 py-2 bg-white rounded-md border-1 text-primary shadow-lg hover:brightness-90 text-sm font-black group-hover:visible absolute z-10 right-9"
+          className="invisible px-4 py-2 bg-white rounded-md border-1 text-primary shadow-lg hover:brightness-90 text-sm font-black group-hover:visible absolute z-10 right-9 top-12"
         >
           Logout
         </Link>
@@ -48,7 +48,7 @@ const LoggedInHeaderButton = ({ children, currentUser, role }: Props) => {
           <div className="flex gap-6">
             <button className="header-btn">
               <img
-                className="h-7 rounded-sm mr-7"
+                className="h-7 rounded-sm mr-3"
                 src={currentUser?.currentUser?.profilePic || defaultAvatarImg}
                 alt="Profile image"
               />

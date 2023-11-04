@@ -11,7 +11,7 @@ export const staffIcon =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1698947864/staffIcon_fs624z.png";
 
 export const studentIcon =
-  "https://res.cloudinary.com/djcn6luvw/image/upload/v1698947864/staffIcon_fs624z.png";
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699134596/studentIcon_z7l858.png";
 
 export const blockedEye =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1693818190/Medibook/hidePassword_yrbwks_x8yl7m.png";
