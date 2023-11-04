@@ -1,9 +1,7 @@
 import { ILogin, ILoginResponse } from "../../interfaces/auth";
 import { Form, Formik } from "formik";
 import { toast } from "react-hot-toast";
-import { useCallback, useState } from "react";
-import { getLocalData } from "../../utils/localStorage";
-import { Navigate } from "react-router-dom";
+import { useState } from "react";
 import Input from "./Input";
 import Button from "../UI/Button";
 import PasswordInput from "./PasswordInput";
@@ -12,25 +10,6 @@ import { loginSchema } from "../../schema/auth";
 
 const LoginForm = ({ loginHandler, onSubmit }: Props) => {
   const [message, setMessage] = useState<string | null>(null);
-  const currentUser = getLocalData();
-
-  // function is written inside useCall back so only rerender depends on the dependency array
-  // function to navigate user to the correct route
-  const routeTo = useCallback((role: string): string | undefined => {
-    switch (role) {
-      case "student":
-        return "students";
-      case "chiefWarden":
-        return "chief-wardens";
-      case "staff":
-        return "staffs";
-      default:
-        break;
-    }
-  }, []);
-  // checking if users is logged in
-  if (currentUser)
-    return <Navigate to={`/${routeTo(currentUser.role)}/dashboard`} />;
 
   return (
     <>

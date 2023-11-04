@@ -156,7 +156,7 @@ const HeaderLinks = ({ currentUser }: Props) => {
         {item.name}
       </NavLink>
     ));
-  return <div>{displayLinks}</div>;
+  return <>{displayLinks}</>;
 };
 
 type CurrentLinks = { name: string; link: string }[] | [];

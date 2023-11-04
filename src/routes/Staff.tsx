@@ -8,9 +8,9 @@ const Login = lazy(() => import("../pages/staff/Login"));
 const Staff = () => {
   return (
     <Routes>
-      <Route element={<StaffLayout />}>
+      <Route path="/" element={<StaffLayout />}>
         <Route
-          path="/login"
+          path="login"
           element={
             <Suspense fallback={<Loader />}>
               <Login />

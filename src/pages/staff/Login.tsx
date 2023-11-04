@@ -1,14 +1,19 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, Navigate } from "react-router-dom";
 import { useAppDispatch } from "../../App";
 import { login } from "../../apiRoutes/staff";
 import { ILoginResponse } from "../../interfaces/auth";
 import { currentUserActions } from "../../store/currentUserSlice";
-import { saveLocally } from "../../utils/localStorage";
+import { getLocalData, saveLocally } from "../../utils/localStorage";
 import LoginForm from "../../components/forms/LoginForm";
 
 const Login = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+
+  const currentUser = getLocalData();
+
+  // checking if users is logged in
+  if (currentUser) return <Navigate to={`/staffs/dashboard`} />;
 
   const loginHandler = (token: string, data: ILoginResponse) => {
     saveLocally(token, data, "staff");
