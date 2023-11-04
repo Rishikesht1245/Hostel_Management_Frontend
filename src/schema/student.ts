@@ -83,3 +83,7 @@ export const studentAdmissionSchema = yup.object().shape({
     .min(4, "Remarks must be longer than 4 characters")
     .max(250, "Remarks must be shorter than 250 characters"),
 });
+
+export const changeMealPlanSchema = yup.object().shape({
+  mealPlan: yup.string().required("Meal Plan is required").trim().min(1),
+});

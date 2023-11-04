@@ -30,7 +30,7 @@ const Header = ({ role, newAdmission }: Props) => {
   );
 
   return (
-    <header className="h-16 bg-white flex shadow-lg ">
+    <header className="h-16 bg-white flex shadow-lg">
       <div className="h-16 container flex my-auto content-center justify-between gap-1 items-center">
         {/* Header Icon */}
         <Link to={"/"}>

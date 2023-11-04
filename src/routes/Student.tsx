@@ -8,6 +8,9 @@ const LoginPage = lazy(() => import("../pages/students/Login"));
 const DetailsForm = lazy(
   () => import("../pages/students/admission/DetailsForm")
 );
+const MealPlans = lazy(() => import("../pages/students/admission/MealPlans"));
+const Blocks = lazy(() => import("../pages/students/admission/Blocks"));
+const Rooms = lazy(() => import("../pages/students/admission/Rooms"));
 
 const Student = () => {
   return (
@@ -32,6 +35,30 @@ const Student = () => {
           element={
             <Suspense fallback={<Loader />}>
               <DetailsForm />
+            </Suspense>
+          }
+        />
+        <Route
+          path="mealPlans"
+          element={
+            <Suspense fallback={<Loader />}>
+              <MealPlans />
+            </Suspense>
+          }
+        />
+        <Route
+          path="blocks"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Blocks />
+            </Suspense>
+          }
+        />
+        <Route
+          path="rooms"
+          element={
+            <Suspense fallback={<Loader />}>
+              <Rooms />
             </Suspense>
           }
         />

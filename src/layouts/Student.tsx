@@ -12,7 +12,7 @@ const Student = () => {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="flex flex-col bg-[top_right_-20rem] md:bg-center bg-fixed"
+      className="flex flex-col md:bg-center lg:bg-fixed"
     >
       <Header role="student" />
       <div className="flex justify-center items-center grow">

@@ -6,10 +6,16 @@ import Input from "./Input";
 import PasswordInput from "./PasswordInput";
 import SelectInput from "./SelectInput";
 import { studentAdmissionSchema } from "../../schema/student";
+import { useAppSelector } from "../../App";
 
 // student data is the state where data is saved
 const StudentDetails = ({ studentData, submitHandler }: Props) => {
   const [message, setMessage] = useState<string | null>(null);
+
+  if (!studentData) {
+    studentData = useAppSelector((state) => state.newAdmission);
+    console.log(studentData);
+  }
 
   // useMemo hook is used -- it memoize the result of a function here the arrays are memoized
   // options for select Input

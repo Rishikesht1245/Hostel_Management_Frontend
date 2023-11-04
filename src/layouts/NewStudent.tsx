@@ -13,10 +13,10 @@ const NewStudentLayout = () => {
       style={{
         backgroundImage: `url(${studentBgImg})`,
         minHeight: "100vh",
-        backgroundPosition: "cover",
+        backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
       }}
-      className="flex flex-col bg-[top_right_-20rem] md:bg-center bg:fixed"
+      className="flex flex-col md:bg-center lg:bg-fixed"
     >
       <Header role="student" newAdmission />
       <div className="flex justify-center items-center grow">

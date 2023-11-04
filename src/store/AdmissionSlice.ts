@@ -11,7 +11,9 @@ interface IAdmissionSlice {
 }
 
 const initialState = {
+  //storing the fetched data
   hostel: {},
+  // storing the input data
   student: {},
 } as IAdmissionSlice;
 
@@ -26,11 +28,13 @@ export const admissionSlice = createSlice({
     addBlock: (state, action) => {
       // id of the block
       state.student.block = action.payload._id;
+      // for finding the rooms based on rooms selected by student
       state.hostel.selectedBlock = action.payload;
     },
     addMealPlan: (state, action) => {
       state.student.mealPlan = action.payload;
     },
+    //reset the store  : returning initial state empty objects
     complete: () => {
       return initialState;
     },
@@ -40,6 +44,7 @@ export const admissionSlice = createSlice({
     builder.addCase(fetchBlocksData.fulfilled, (state, action) => {
       return { ...state, hostel: { blocks: action.payload } };
     });
+    // return will update the initial state
     builder.addCase(fetchActiveMealPlans.fulfilled, (state, action) => {
       return { ...state, hostel: { mealPlans: action.payload } };
     });
@@ -57,6 +62,7 @@ export const fetchBlocksData = createAsyncThunk(
     const {
       data: { data },
     } = await blocksForAdmissionAPI();
+    // action.payload
     return data;
   }
 );
