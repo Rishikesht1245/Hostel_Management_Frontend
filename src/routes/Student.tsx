@@ -2,7 +2,7 @@ import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import StudentLayout from "../layouts/Student";
 import Loader from "../components/UI/Loader";
-import NewStudentLayout from "../layouts/NewStudentLayout";
+import NewStudentLayout from "../layouts/NewStudent";
 
 const LoginPage = lazy(() => import("../pages/students/Login"));
 const DetailsForm = lazy(
