@@ -145,6 +145,7 @@ const HeaderLinks = ({ currentUser }: Props) => {
         className={`text-sm text-primary  font-black ${
           item?.name === "Chat" && "relative"
         }`}
+        key={item.name}
         style={({ isActive }) => ({
           textDecoration: isActive ? "underline" : "",
           textUnderlineOffset: isActive ? "0.4rem" : "",

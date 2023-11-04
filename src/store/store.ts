@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { currentUserSlice } from "./currentUserSlice";
+import { admissionSlice } from "./AdmissionSlice";
 
 const store = configureStore({
   reducer: {
     currentUser: currentUserSlice.reducer,
-    // admission and history slice pending
+    newAdmission: admissionSlice.reducer,
+    // history slice pending
   },
 });
 
