@@ -15,3 +15,6 @@ export const hostelImg1 =
 
 export const hostelImg2 =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1699116748/blocks1Img_u3k1v8.png";
+
+export const staffBgImg =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699126947/staffBgImg_qu9xrs.jpg";

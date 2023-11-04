@@ -23,7 +23,7 @@ const Login = () => {
     <div className="parent-container lg:max-w-md">
       <h2 className="mb-6">Student login</h2>
       <LoginForm loginHandler={loginHandler} onSubmit={login} />
-      <div className="ml-auto text-sm pt-1 px-2 hover:text-blue-500">
+      <div className="ml-auto text-sm pt-1 px-2 hover:text-blue-700">
         <Link to={"/students/admission/details"}>
           New Admission <span className="text-lg">→</span>
         </Link>
