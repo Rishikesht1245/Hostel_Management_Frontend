@@ -7,8 +7,8 @@ import { tickIcon, viewIcon, disabledIcon } from "../../assets/icons";
 import MealPlanForm from "../../components/forms/MealPlanForm";
 import {
   fetchAllMealPlans,
-  changeAvailabilityMealPlanCW,
-} from "../../apiRoutes/chiefWarden";
+  changeAvailabilityMealPlan,
+} from "../../apiRoutes/staff";
 
 const MealPlans = () => {
   const [pending, setPending] = useState<boolean>(true);
@@ -82,7 +82,7 @@ const MealPlans = () => {
               {/* change availability of meal plans */}
               <button
                 onClick={() =>
-                  changeAvailabilityMealPlanCW(row._id)
+                  changeAvailabilityMealPlan(row._id)
                     .then(
                       // fetching the updated meal plans -- passed as call back
                       fetchAllMeals
@@ -147,7 +147,7 @@ const MealPlans = () => {
             modalData={modalData}
             role={formRole}
             setModalOpen={setModalOpen}
-            user="chief-warden"
+            user="chef"
           />
         )}
       </Modal>

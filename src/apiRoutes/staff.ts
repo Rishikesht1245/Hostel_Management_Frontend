@@ -7,7 +7,16 @@ import { setApiHeader } from "../utils/apiHeader";
 export const login = async (formData: ILogin) =>
   await staffAPI.post("/auth", formData);
 
-// ----- MEAL PLANS ----- //
+// ------------------- MEAL PLANS --------------------//
+
+//fetch all meal plans
+export const fetchAllMealPlans = async () =>
+  await staffAPI.get("/meals/all", setApiHeader());
+
+// change activity
+export const changeAvailabilityMealPlan = async (_id: string) =>
+  await staffAPI.patch(`/meals/${_id}`, "", setApiHeader());
+
 //add new meal plan
 export const addNewMealPlan = async (formData: IMealPlan) =>
   await staffAPI.post("/meals", formData, setApiHeader());

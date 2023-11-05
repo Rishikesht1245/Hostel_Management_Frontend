@@ -5,7 +5,8 @@ import Loader from "../components/UI/Loader";
 import ProtectedRoute from "../utils/ProtectedRoute";
 
 const Login = lazy(() => import("../pages/staff/Login"));
-const Dashboard = lazy(() => import("../pages/staff/DashBoard"));
+const Dashboard = lazy(() => import("../pages/staff/Dashboard"));
+const MealPlans = lazy(() => import("../pages/staff/MealPlans.chef"));
 
 const Staff = () => {
   return (
@@ -21,7 +22,22 @@ const Staff = () => {
         />
         {/* Protected route */}
         <Route element={<ProtectedRoute role="staff" />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route
+            path="dashboard"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Dashboard />
+              </Suspense>
+            }
+          />
+          <Route
+            path="meals"
+            element={
+              <Suspense fallback={<Loader />}>
+                <MealPlans />
+              </Suspense>
+            }
+          />
         </Route>
       </Route>
     </Routes>
