@@ -23,3 +23,7 @@ export const getLocalData = (): ICurrentUser | null => {
 export const removeLocalData = () => {
   localStorage.removeItem("hostelManagement");
 };
+
+export const getToken = (): string | undefined => {
+  return getLocalData()?.token;
+};

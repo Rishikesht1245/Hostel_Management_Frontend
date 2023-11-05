@@ -1,19 +1,23 @@
 import { Link } from "react-router-dom";
-import { notFoundImg, studentBgImg } from "../assets/images";
+import { notFoundImg, staffBgImg, studentBgImg } from "../assets/images";
 import Header from "../components/layouts/Header";
 import Footer from "../components/layouts/Footer";
-const NotFound = () => {
+import { IRole } from "../interfaces/auth";
+
+const NotFound = ({ role }: { role: IRole }) => {
   return (
     <div
       style={{
-        backgroundImage: `url(${studentBgImg})`,
+        backgroundImage: `url(${
+          role === "student" ? studentBgImg : staffBgImg
+        })`,
         backgroundSize: "cover",
         minHeight: "100vh",
         backgroundRepeat: "no-repeat",
       }}
       className="flex flex-col md:bg-center lg:bg-fixed"
     >
-      <Header role="student" />
+      <Header role={role} />
       <div className="flex justify-center items-center grow">
         <div className="parent-container">
           <img

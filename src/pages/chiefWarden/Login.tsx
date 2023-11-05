@@ -16,7 +16,7 @@ const Login = () => {
   if (currentUser) return <Navigate to={`/chief-wardens/dashboard`} />;
 
   const loginHandler = (token: string, data: ILoginResponse) => {
-    saveLocally(token, data, "student");
+    saveLocally(token, data, "chiefWarden");
     dispatch(
       currentUserActions.login({
         token,

@@ -3,9 +3,11 @@ import ChiefWardenLayout from "../layouts/ChiefWarden";
 import { Suspense, lazy } from "react";
 import Loader from "../components/UI/Loader";
 import ProtectedRoute from "../utils/ProtectedRoute";
+import NotFound from "../pages/NotFound";
 
 const Login = lazy(() => import("../pages/chiefWarden/Login"));
 const Dashboard = lazy(() => import("../pages/chiefWarden/Dashboard"));
+const MealPlans = lazy(() => import("../pages/chiefWarden/MealPlans"));
 const ChiefWarden = () => {
   return (
     <Routes>
@@ -19,9 +21,27 @@ const ChiefWarden = () => {
           }
         />
         <Route element={<ProtectedRoute role="chiefWarden" />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route
+            path="dashboard"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Dashboard />
+              </Suspense>
+            }
+          />
+          <Route
+            path="mealPlans"
+            element={
+              <Suspense fallback={<Loader />}>
+                <MealPlans />
+              </Suspense>
+            }
+          />
         </Route>
       </Route>
+
+      {/* page not found */}
+      <Route path="/*" element={<NotFound role="chiefWarden" />} />
     </Routes>
   );
 };

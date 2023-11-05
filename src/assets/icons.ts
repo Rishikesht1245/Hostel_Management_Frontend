@@ -18,3 +18,12 @@ export const blockedEye =
 
 export const openEye =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1693818190/Medibook/viewPassword_tbzoeq_fok0c1.png";
+
+export const disabledIcon =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699183637/disabled_qssz6q.png";
+
+export const viewIcon =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699183639/veiw_azilik.png";
+
+export const tickIcon =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699183640/tickIcon_vrm5iv.png";

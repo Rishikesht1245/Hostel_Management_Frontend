@@ -30,7 +30,8 @@ const LoginForm = ({ loginHandler, onSubmit }: Props) => {
             })
             // destructuring error
             .catch(({ response }) => {
-              if (response?.data?.message) return setMessage(message);
+              if (response?.data?.message)
+                return setMessage(response?.data?.message);
               setMessage("Something went wrong, please try again!");
             })
             .finally(() => setSubmitting(false));
