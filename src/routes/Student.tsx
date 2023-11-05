@@ -4,6 +4,7 @@ import StudentLayout from "../layouts/Student";
 import Loader from "../components/UI/Loader";
 import NewStudentLayout from "../layouts/NewStudent";
 import ProtectedRoute from "../utils/ProtectedRoute";
+import NotFound from "../pages/NotFound";
 
 const LoginPage = lazy(() => import("../pages/students/Login"));
 const DetailsForm = lazy(
@@ -69,6 +70,9 @@ const Student = () => {
           }
         />
       </Route>
+
+      {/* not found */}
+      <Route path="/*" element={<NotFound />} />
     </Routes>
   );
 };

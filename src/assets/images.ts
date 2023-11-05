@@ -18,3 +18,9 @@ export const hostelImg2 =
 
 export const staffBgImg =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1699126947/staffBgImg_qu9xrs.jpg";
+
+export const notFoundImg =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699165788/critical_oh2hdw.png";
+
+export const errorImg =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699166347/error_tg5t25.png";

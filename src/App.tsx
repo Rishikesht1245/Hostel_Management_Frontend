@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import StudentRoutes from "./routes/Student";
 import StaffRoutes from "./routes/Staff";
 import ChiefWardenRoutes from "./routes/ChiefWarden";
@@ -10,30 +10,29 @@ import { Toaster } from "react-hot-toast";
 
 function App() {
   const currentUser = getLocalData();
+
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/students/*" element={<StudentRoutes />} />
-          <Route path="/chief-wardens/*" element={<ChiefWardenRoutes />} />
-          <Route path="/staffs/*" element={<StaffRoutes />} />
-          {/* Home route */}
-          <Route
-            path="/"
-            element={
-              //if logged in
-              currentUser?.role === "student" ? (
-                <Navigate to="/students/dashboard" />
-              ) : (
-                // not logged in
-                <Navigate to="/students/login" />
-              )
-            }
-          />
-          {/* not found */}
-          <Route path="/*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/students/*" element={<StudentRoutes />} />
+        <Route path="/chief-wardens/*" element={<ChiefWardenRoutes />} />
+        <Route path="/staffs/*" element={<StaffRoutes />} />
+        {/* Home route */}
+        <Route
+          path="/"
+          element={
+            //if logged in
+            currentUser?.role === "student" ? (
+              <Navigate to="/students/dashboard" />
+            ) : (
+              // not logged in
+              <Navigate to="/students/login" />
+            )
+          }
+        />
+        {/* not found */}
+        <Route path="/*" element={<NotFound />} />
+      </Routes>
       <Toaster />
     </>
   );
