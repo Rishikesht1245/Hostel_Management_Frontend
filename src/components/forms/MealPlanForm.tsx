@@ -78,7 +78,7 @@ const MealPlanForm = ({
             {isSubmitting ? (
               <LoadingButton />
             ) : (
-              <Button type="submit" className="max-w-sm lg:w-1/3 mx-auto">
+              <Button type="submit" className="max-w-sm lg:w-1/2 mx-auto">
                 Save
               </Button>
             )}

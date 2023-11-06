@@ -1,5 +1,5 @@
 export const hostelIcon =
-  "https://res.cloudinary.com/djcn6luvw/image/upload/v1698946376/hostelicon_qo4e36.png";
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699251635/hotel_kz3fhc.png";
 
 export const emailIcon =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1698947070/emailIcon_rl5gfa.png";
@@ -27,3 +27,9 @@ export const viewIcon =
 
 export const tickIcon =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1699183640/tickIcon_vrm5iv.png";
+
+export const searchIcon =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699252141/search_g5s5pt.png";
+
+export const editIcon =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699252121/edit_gezlhl.png";

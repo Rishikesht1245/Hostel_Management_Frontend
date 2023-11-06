@@ -24,3 +24,15 @@ export const addNewMealPlan = async (formData: IMealPlan) =>
 // update meal plan
 export const updateMealPlan = async (_id: string, formData: IMealPlan) =>
   await staffAPI.put(`meals/${_id}`, formData, setApiHeader());
+
+//----------------- BLOCKS AND ROOMS --------------------- //
+export const fetchAllBlocksAPI = async () =>
+  await staffAPI.get("/maintenance", setApiHeader());
+
+// fetch block by name
+export const fetchBlockAPI = async (blockName: string) =>
+  await staffAPI.get(`/maintenance/${blockName}`, setApiHeader());
+
+// change room's availability
+export const changeAvailabilityAPI = async (roomCode: string) =>
+  staffAPI.patch(`/maintenance/room/${roomCode}`, "", setApiHeader());

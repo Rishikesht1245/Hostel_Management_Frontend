@@ -8,6 +8,7 @@ import NotFound from "../pages/NotFound";
 const Login = lazy(() => import("../pages/chiefWarden/Login"));
 const Dashboard = lazy(() => import("../pages/chiefWarden/Dashboard"));
 const MealPlans = lazy(() => import("../pages/chiefWarden/MealPlans"));
+const Blocks = lazy(() => import("../pages/chiefWarden/Blocks"));
 const ChiefWarden = () => {
   return (
     <Routes>
@@ -34,6 +35,14 @@ const ChiefWarden = () => {
             element={
               <Suspense fallback={<Loader />}>
                 <MealPlans />
+              </Suspense>
+            }
+          />
+          <Route
+            path="blocks"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Blocks />
               </Suspense>
             }
           />
