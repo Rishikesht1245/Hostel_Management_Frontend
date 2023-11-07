@@ -38,3 +38,27 @@ export const fetchBlockAPI = async (blockName: string) =>
 // add new block
 export const addNewBlockCW = async (formData: AddBlock) =>
   await chiefWardenAPI.post("/blocks", formData, setApiHeader());
+
+// ------------------------------- STAFFS -------------------------------- //
+
+// fetch all staffs : filter and search is passed as query (filterObj in backend)
+export const fetchAllStaffsAPI = async (
+  filter: string = "",
+  name: string = ""
+) =>
+  await chiefWardenAPI.get(
+    `/staffs?role=${filter}&name=${name}`,
+    setApiHeader()
+  );
+
+//new Staff API
+export const newStaffAPI = async (formData: any) =>
+  await chiefWardenAPI.post("/staffs", formData, setApiHeader());
+
+//staffs by department
+export const fetchStaffsByDeptAPI = async (department: string) =>
+  await chiefWardenAPI.get(`/staffs/department/${department}`, setApiHeader());
+
+//complaints by staff
+export const complaintsByStaffAPI = async (_id: string) =>
+  await chiefWardenAPI.get(`/staffs/${_id}`, setApiHeader());

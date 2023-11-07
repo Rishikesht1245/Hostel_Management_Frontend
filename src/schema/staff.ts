@@ -1,4 +1,5 @@
 import * as yup from "yup";
+
 export const mealPlanSchema = yup.object().shape({
   title: yup
     .string()
@@ -38,4 +39,66 @@ export const mealPlanSchema = yup.object().shape({
     .max(100, "dinner must be longer than 5 characters"),
   active: yup.bool().oneOf([true, false], "Must be a true or false"),
   subscribers: yup.number().positive().integer(),
+});
+
+export const newStaffSchema = yup.object().shape({
+  email: yup
+    .string()
+    .trim()
+    .lowercase()
+    .required()
+    .test("isvalidEmail", "Invalid e-Mail", (arg) =>
+      /[a-z0-9]+@[a-z0-9]+.com/i.test(arg)
+    ),
+  name: yup
+    .string()
+    .required()
+    .trim()
+    .min(4, "Invalid staff name")
+    .max(20, "Invalid staff name"),
+  password: yup
+    .string()
+    .trim()
+    .required("Required")
+    .min(8, "Invalid Password")
+    .max(16, "Invalid Password"),
+  mobile: yup
+    .string()
+    .required()
+    .trim()
+    .matches(/^[0-9]{10}$/, "Invalid mobile number"),
+  gender: yup.string().required().oneOf(["female", "male"], "Invalid gender"),
+  role: yup
+    .string()
+    .required()
+    .oneOf(["maintenance", "chef", "wardenF"], "Invalid Role"),
+  building: yup
+    .string()
+    .required()
+    .trim()
+    .min(4, "Invalid building")
+    .max(16, "Invalid building"),
+  city: yup
+    .string()
+    .required()
+    .trim()
+    .min(4, "Invalid city")
+    .max(16, "Invalid city"),
+  pin: yup
+    .string()
+    .trim()
+    .required()
+    .matches(/^[0-9]{6}$/, "Invalid Pin Code"),
+  state: yup
+    .string()
+    .required()
+    .trim()
+    .min(4, "Invalid state")
+    .max(16, "Invalid state"),
+  country: yup
+    .string()
+    .required()
+    .trim()
+    .min(4, "Invalid country")
+    .max(16, "Invalid country"),
 });

@@ -5,8 +5,8 @@ const SelectInput = ({
   options,
   className,
   label,
-  edit,
   defaultValue,
+  edit,
 }: Props) => {
   return (
     <div>
@@ -51,7 +51,7 @@ interface Props {
   options: { value: string; text: string }[];
   className?: string;
   label: string;
-  edit?: string;
   defaultValue?: string;
+  edit?: boolean;
 }
 export default SelectInput;
