@@ -39,6 +39,20 @@ export const fetchBlockAPI = async (blockName: string) =>
 export const addNewBlockCW = async (formData: AddBlock) =>
   await chiefWardenAPI.post("/blocks", formData, setApiHeader());
 
+// check room availability
+export const checkRoomAvailabilityAPI = async (roomCode: string) =>
+  await chiefWardenAPI.get(
+    `/blocks/rooms/availability/${roomCode}`,
+    setApiHeader()
+  );
+
+// available rooms
+export const fetchAvailableRoomsAPI = async (blockId: string) =>
+  await chiefWardenAPI.get(
+    `/blocks/rooms/availableRooms/${blockId}`,
+    setApiHeader()
+  );
+
 // ------------------------------- STAFFS -------------------------------- //
 
 // fetch all staffs : filter and search is passed as query (filterObj in backend)
@@ -62,3 +76,20 @@ export const fetchStaffsByDeptAPI = async (department: string) =>
 //complaints by staff
 export const complaintsByStaffAPI = async (_id: string) =>
   await chiefWardenAPI.get(`/staffs/${_id}`, setApiHeader());
+
+// ------------------------------- STUDENTS -------------------------------- //
+
+// get all students
+export const fetchAllStudentsAPI = async (
+  filter: string = "",
+  search: string = ""
+) =>
+  await chiefWardenAPI.get(
+    `/students/all?status=${filter}&name=${search}`,
+    setApiHeader()
+  );
+
+/* update student - _id : id of the student , data : data to update like allot 
+room depart or make pending student to resident */
+export const updateSingleStudentAPI = async (_id: string, data: any) =>
+  await chiefWardenAPI.patch(`/students/${_id}`, data, setApiHeader());

@@ -24,7 +24,7 @@ export interface IStudent {
     title: string;
     price: number;
   };
-  blocks?: {
+  block?: {
     _id: string;
     name: string;
   };

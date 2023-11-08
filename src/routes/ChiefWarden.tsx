@@ -10,6 +10,7 @@ const Dashboard = lazy(() => import("../pages/chiefWarden/Dashboard"));
 const MealPlans = lazy(() => import("../pages/chiefWarden/MealPlans"));
 const Blocks = lazy(() => import("../pages/chiefWarden/Blocks"));
 const Staffs = lazy(() => import("../pages/chiefWarden/Staffs"));
+const Students = lazy(() => import("../pages/chiefWarden/Students"));
 const ChiefWarden = () => {
   return (
     <Routes>
@@ -52,6 +53,14 @@ const ChiefWarden = () => {
             element={
               <Suspense fallback={<Loader />}>
                 <Staffs />
+              </Suspense>
+            }
+          />
+          <Route
+            path="students"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Students />
               </Suspense>
             }
           />
