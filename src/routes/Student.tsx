@@ -14,6 +14,7 @@ const MealPlans = lazy(() => import("../pages/students/admission/MealPlans"));
 const Blocks = lazy(() => import("../pages/students/admission/Blocks"));
 const Rooms = lazy(() => import("../pages/students/admission/Rooms"));
 const Dashboard = lazy(() => import("../pages/students/Dashboard"));
+const MealPlanPage = lazy(() => import("../pages/students/MealPlans"));
 
 const Student = () => {
   return (
@@ -30,7 +31,22 @@ const Student = () => {
         />
         {/* Protected Route */}
         <Route element={<ProtectedRoute role="student" />}>
-          <Route path="dashboard" element={<Dashboard />} />
+          <Route
+            path="dashboard"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Dashboard />
+              </Suspense>
+            }
+          />
+          <Route
+            path="meals"
+            element={
+              <Suspense fallback={<Loader />}>
+                <MealPlanPage />
+              </Suspense>
+            }
+          />
         </Route>
       </Route>
 
@@ -72,7 +88,7 @@ const Student = () => {
       </Route>
 
       {/* not found */}
-      <Route path="/*" element={<NotFound />} />
+      <Route path="/*" element={<NotFound role="student" />} />
     </Routes>
   );
 };

@@ -1,5 +1,5 @@
 import { Form, Formik } from "formik";
-import { useState, useMemo } from "react";
+import { useMemo } from "react";
 import LoadingButton from "../UI/LoadingButton";
 import Button from "../UI/Button";
 import Input from "./Input";
@@ -10,11 +10,8 @@ import { useAppSelector } from "../../App";
 
 // student data is the state where data is saved
 const StudentDetails = ({ studentData, submitHandler }: Props) => {
-  const [message, setMessage] = useState<string | null>(null);
-
   if (!studentData) {
     studentData = useAppSelector((state) => state.newAdmission);
-    console.log(studentData);
   }
 
   // useMemo hook is used -- it memoize the result of a function here the arrays are memoized
@@ -185,11 +182,6 @@ const StudentDetails = ({ studentData, submitHandler }: Props) => {
           </Form>
         )}
       </Formik>
-      {message && (
-        <span className="text-center text-md mt-2 font-semibold text-red-700">
-          {message}
-        </span>
-      )}
     </>
   );
 };

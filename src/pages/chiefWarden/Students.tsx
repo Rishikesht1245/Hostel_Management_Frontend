@@ -84,7 +84,7 @@ const Students = () => {
                 title="View Button"
                 onClick={() => {
                   setStudentData(row);
-                  // current room of student (for pending student details)
+                  // current room of student (for pending student details) -- check here also
                   checkRoomAvailabilityAPI(row.room)
                     .then(({ data }) => {
                       data
@@ -296,7 +296,7 @@ const Students = () => {
                       <Form className="flex flex-col justify-center mt-8">
                         <div className="flex flex-col md:flex-row justify-center gap-5 px-1 mb-3">
                           <SelectInput
-                            label="Select Rooms"
+                            label="Select Room"
                             name="room"
                             options={availableRooms}
                             defaultValue={studentData?.room}
@@ -309,10 +309,10 @@ const Students = () => {
                             options={studentStatusOptions.filter(
                               ({ value }) => {
                                 if (studentData?.status === "pending") {
-                                  // for pending student show pending and rejected status to update
+                                  // for pending student show resident and rejected status to update
                                   if (
-                                    value === "pending" ||
-                                    value === "rejected"
+                                    value === "rejected" ||
+                                    value === "resident"
                                   )
                                     return true;
                                   else return false;

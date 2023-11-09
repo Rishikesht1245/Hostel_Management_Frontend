@@ -3,9 +3,12 @@ import { nonVegImg, vegImg } from "../assets/images";
 //  component to show the meal plans in detail
 const MealPlan = ({
   data: { breakfast, dinner, lunch, evening, price, title, i },
+  className,
 }: Props) => {
   return (
-    <div className="md:mx-4 my-4 p-4 rounded shadow-lg flex flex-col w-full">
+    <div
+      className={`md:mx-4 my-4 p-4 rounded shadow-lg flex flex-col w-full ${className}`}
+    >
       {/* title and image */}
       <div className="flex">
         <div className="flex flex-col text-center items-center grow">
@@ -17,7 +20,7 @@ const MealPlan = ({
           </span>
         </div>
         <img
-          src={i === 0 ? vegImg : nonVegImg}
+          src={i % 2 === 0 ? vegImg : nonVegImg}
           alt="meal plan"
           className="w-20 mx-4"
         />
@@ -77,5 +80,6 @@ interface Props {
     selected?: boolean;
     i: number;
   };
+  className?: string;
 }
 export default MealPlan;

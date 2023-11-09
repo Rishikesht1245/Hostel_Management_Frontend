@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../../App";
 import { customPopup } from "../../../utils/popup";
 import { admissionActions } from "../../../store/AdmissionSlice";
@@ -11,6 +12,7 @@ const Rooms = () => {
   const studentData = useAppSelector((state) => state.newAdmission?.student);
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const selectRoomHandler = (code: string) => {
     // room confirmation
@@ -45,21 +47,27 @@ const Rooms = () => {
             // adding room field as per DB
             room: code,
           };
-          await newAdmissionAPI(formData);
-          //     clearing data stored in redux store
-          dispatch(admissionActions.complete());
-          return customPopup.fire({
-            title: "Applied Successfully",
-            icon: "success",
-            text: "Once admitted, the chief warden will contact you through your school email",
-            confirmButtonText: "Sure!",
-            confirmButtonColor: "#00A300",
-          });
-        }
-      })
-      .then((result) => {
-        if (result?.isConfirmed) {
-          navigate("/");
+          try {
+            await newAdmissionAPI(formData);
+            //     clearing data stored in redux store
+            dispatch(admissionActions.complete());
+            return customPopup
+              .fire({
+                title: "Applied Successfully",
+                icon: "success",
+                text: "Once admitted, the chief warden will contact you through your school email",
+                confirmButtonText: "Sure!",
+                confirmButtonColor: "#00A300",
+              })
+              .then((result) => {
+                if (result?.isConfirmed) {
+                  navigate("/");
+                }
+              });
+          } catch (error: any) {
+            console.log(error);
+            setErrorMessage(error?.response?.data?.message);
+          }
         }
       });
   };
@@ -88,6 +96,11 @@ const Rooms = () => {
       >
         ← Back
       </button>
+      {errorMessage && (
+        <span className="text-md text-center font-semibold text-red-700">
+          {errorMessage}
+        </span>
+      )}
     </div>
   );
 };
