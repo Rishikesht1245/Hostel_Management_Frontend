@@ -15,6 +15,7 @@ const Blocks = lazy(() => import("../pages/students/admission/Blocks"));
 const Rooms = lazy(() => import("../pages/students/admission/Rooms"));
 const Dashboard = lazy(() => import("../pages/students/Dashboard"));
 const MealPlanPage = lazy(() => import("../pages/students/MealPlans"));
+const Profile = lazy(() => import("../pages/students/Profile"));
 
 const Student = () => {
   return (
@@ -44,6 +45,14 @@ const Student = () => {
             element={
               <Suspense fallback={<Loader />}>
                 <MealPlanPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="profile"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Profile />
               </Suspense>
             }
           />

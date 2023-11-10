@@ -1,5 +1,5 @@
 import { studentAPI } from "../config/api";
-import { ILogin } from "../interfaces/auth";
+import { ILogin, IResetPassword } from "../interfaces/auth";
 import { IStudent } from "../interfaces/student";
 import { setApiHeader } from "../utils/apiHeader";
 
@@ -19,6 +19,10 @@ export const fetchActiveMealPlans = async () =>
 export const newAdmissionAPI = async (studentData: IStudent) =>
   await studentAPI.post("/newAdmission", studentData);
 
+// reset Password
+export const resetPasswordAPI = async (passwordData: IResetPassword) =>
+  await studentAPI.patch("/auth", passwordData, setApiHeader());
+
 //get active meal plans
 export const fetchActiveMealPlansAPI = async () =>
   await studentAPI.get("/mealPlans", setApiHeader());
@@ -30,3 +34,11 @@ export const selectedMealPlanAPI = async () =>
 // Update meal plan
 export const updateMealPlanAPI = async (data: object) =>
   await studentAPI.post("/mealPlan", data, setApiHeader());
+
+// Update profile image
+export const changeProfileImageAPI = async (imageAsBase64: string) =>
+  await studentAPI.patch(
+    "/profile",
+    { profilePic: imageAsBase64 },
+    setApiHeader()
+  );
