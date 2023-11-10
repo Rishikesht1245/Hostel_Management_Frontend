@@ -69,7 +69,6 @@ const ProtectedRoute = ({ role, department }: Props) => {
   if (auth === null) return null;
 
   return auth ? <Outlet /> : <Navigate to={`/${routeTo(role)}/login`} />;
-  return <div>ProtectedRoute</div>;
 };
 
 interface Props {

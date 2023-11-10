@@ -1,5 +1,5 @@
 import { chiefWardenAPI } from "../config/api";
-import { ILogin } from "../interfaces/auth";
+import { ILogin, IResetPassword } from "../interfaces/auth";
 import { AddBlock } from "../interfaces/blocks";
 import { IMealPlan } from "../interfaces/staff";
 import { setApiHeader } from "../utils/apiHeader";
@@ -8,6 +8,10 @@ import { setApiHeader } from "../utils/apiHeader";
 
 export const login = async (formData: ILogin) =>
   await chiefWardenAPI.post("/auth", formData);
+
+// reset password
+export const resetPasswordAPI = async (passwordData: IResetPassword) =>
+  await chiefWardenAPI.patch("/auth", passwordData, setApiHeader());
 
 // ------------------------------- MEAL PLANS ---------------------------- //
 // fetch all meal plans

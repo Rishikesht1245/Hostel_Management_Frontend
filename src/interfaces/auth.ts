@@ -33,3 +33,9 @@ export interface ICurrentUserDetails {
 }
 
 export type IRole = "student" | "staff" | "chiefWarden";
+
+export interface IResetPassword {
+  currentPassword: string;
+  newPassword: string;
+  confirmPassword?: string;
+}
