@@ -9,6 +9,7 @@ const Login = lazy(() => import("../pages/staff/Login"));
 const Dashboard = lazy(() => import("../pages/staff/Dashboard"));
 const MealPlans = lazy(() => import("../pages/staff/MealPlans.chef"));
 const Maintenance = lazy(() => import("../pages/staff/Maintenance"));
+const Profile = lazy(() => import("../pages/staff/Profile"));
 
 const Staff = () => {
   return (
@@ -29,6 +30,14 @@ const Staff = () => {
             element={
               <Suspense fallback={<Loader />}>
                 <Dashboard />
+              </Suspense>
+            }
+          />
+          <Route
+            path="profile"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Profile />
               </Suspense>
             }
           />

@@ -1,5 +1,5 @@
 import { staffAPI } from "../config/api";
-import { ILogin } from "../interfaces/auth";
+import { ILogin, IResetPassword } from "../interfaces/auth";
 import { IMealPlan } from "../interfaces/staff";
 import { setApiHeader } from "../utils/apiHeader";
 
@@ -36,3 +36,15 @@ export const fetchBlockAPI = async (blockName: string) =>
 // change room's availability
 export const changeAvailabilityAPI = async (roomCode: string) =>
   staffAPI.patch(`/maintenance/room/${roomCode}`, "", setApiHeader());
+
+// upload profile image
+export const changeProfileImageAPI = async (imageAsBase64: string) =>
+  await staffAPI.patch(
+    "/profile",
+    { profilePic: imageAsBase64 },
+    setApiHeader()
+  );
+
+//Reset password API
+export const resetPasswordAPI = async (passwordData: IResetPassword) =>
+  await staffAPI.patch("/auth", passwordData, setApiHeader());
