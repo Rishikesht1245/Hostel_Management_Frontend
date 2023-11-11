@@ -116,7 +116,7 @@ const Complaints = () => {
       className="text-gray-400 py-2 px-4 text-sm rounded-md max-w-fit mb-2 md:absolute md:top-10 max-auto shadow focus:outline-none"
     >
       <option value={""}>Filter by status</option>
-      <option value={""}>All Complaints</option>
+      <option value={""}>All complaints</option>
       <option value={"resolved"}>Resolved</option>
       <option value={"initiated"}>Initiated</option>
       <option value={"issued"}>Issued</option>

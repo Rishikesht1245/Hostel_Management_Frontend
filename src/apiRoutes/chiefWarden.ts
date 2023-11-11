@@ -1,6 +1,7 @@
 import { chiefWardenAPI } from "../config/api";
 import { ILogin, IResetPassword } from "../interfaces/auth";
 import { AddBlock } from "../interfaces/blocks";
+import { IComplaintUpdate } from "../interfaces/complaints";
 import { IMealPlan } from "../interfaces/staff";
 import { setApiHeader } from "../utils/apiHeader";
 
@@ -97,3 +98,12 @@ export const fetchAllStudentsAPI = async (
 room depart or make pending student to resident */
 export const updateSingleStudentAPI = async (_id: string, data: any) =>
   await chiefWardenAPI.patch(`/students/${_id}`, data, setApiHeader());
+
+// -------------------------- COMPLAINTS ------------------------------- //
+// fetch all complaints
+export const fetchAllComplaintsAPI = async (filterBy: string = "") =>
+  await chiefWardenAPI.get(`/complaints?status=${filterBy}`, setApiHeader());
+
+// update complaints
+export const updateComplaintAPI = async (_id: string, data: IComplaintUpdate) =>
+  await chiefWardenAPI.patch(`/complaints/${_id}`, data, setApiHeader());
