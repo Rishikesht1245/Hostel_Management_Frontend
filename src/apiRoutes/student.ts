@@ -3,6 +3,7 @@ import { ILogin, IResetPassword } from "../interfaces/auth";
 import { IStudent } from "../interfaces/student";
 import { setApiHeader } from "../utils/apiHeader";
 
+// ----------------------------- AUTH ---------------------------- //
 // Login student
 export const login = async (formData: ILogin) =>
   await studentAPI.post("/auth", formData);
@@ -23,6 +24,8 @@ export const newAdmissionAPI = async (studentData: IStudent) =>
 export const resetPasswordAPI = async (passwordData: IResetPassword) =>
   await studentAPI.patch("/auth", passwordData, setApiHeader());
 
+//-------------------------- MEAL PLANS -------------------------------//
+
 //get active meal plans
 export const fetchActiveMealPlansAPI = async () =>
   await studentAPI.get("/mealPlans", setApiHeader());
@@ -35,6 +38,7 @@ export const selectedMealPlanAPI = async () =>
 export const updateMealPlanAPI = async (data: object) =>
   await studentAPI.post("/mealPlan", data, setApiHeader());
 
+//---------------------------- PROFILE ----------------------------- //
 // Update profile image
 export const changeProfileImageAPI = async (imageAsBase64: string) =>
   await studentAPI.patch(
@@ -42,3 +46,14 @@ export const changeProfileImageAPI = async (imageAsBase64: string) =>
     { profilePic: imageAsBase64 },
     setApiHeader()
   );
+
+// --------------------------- COMPLAINTS -------------------------- //
+// get all complaints
+export const getAllComplaintsAPI = async (filter: string = "") =>
+  await studentAPI.get(`/complaints?status=${filter}`, setApiHeader());
+
+// new complaint
+export const newComplaintAPI = async (data: {
+  department: "warden" | "chef" | "maintenance";
+  message: string;
+}) => await studentAPI.post("/complaints", data, setApiHeader());
