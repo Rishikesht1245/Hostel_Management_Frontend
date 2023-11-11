@@ -1,13 +1,26 @@
 import { staffAPI } from "../config/api";
 import { ILogin, IResetPassword } from "../interfaces/auth";
+import { IComplaintUpdateByStaff } from "../interfaces/complaints";
 import { IMealPlan } from "../interfaces/staff";
 import { setApiHeader } from "../utils/apiHeader";
 
-// login staff
+// -------------------- AUTH -------------------------- //
 export const login = async (formData: ILogin) =>
   await staffAPI.post("/auth", formData);
 
-// ------------------- MEAL PLANS --------------------//
+// upload profile image
+export const changeProfileImageAPI = async (imageAsBase64: string) =>
+  await staffAPI.patch(
+    "/profile",
+    { profilePic: imageAsBase64 },
+    setApiHeader()
+  );
+
+//Reset password API
+export const resetPasswordAPI = async (passwordData: IResetPassword) =>
+  await staffAPI.patch("/auth", passwordData, setApiHeader());
+
+// ------------------- MEAL PLANS ----------------------//
 
 //fetch all meal plans
 export const fetchAllMealPlans = async () =>
@@ -35,16 +48,15 @@ export const fetchBlockAPI = async (blockName: string) =>
 
 // change room's availability
 export const changeAvailabilityAPI = async (roomCode: string) =>
-  staffAPI.patch(`/maintenance/room/${roomCode}`, "", setApiHeader());
+  await staffAPI.patch(`/maintenance/room/${roomCode}`, "", setApiHeader());
 
-// upload profile image
-export const changeProfileImageAPI = async (imageAsBase64: string) =>
-  await staffAPI.patch(
-    "/profile",
-    { profilePic: imageAsBase64 },
-    setApiHeader()
-  );
+// ---------------- COMPLAINTS --------------------------- //
+// All complaints
+export const fetchAllComplaintsAPI = async (filterBy: string = "") =>
+  await staffAPI.get(`/complaints?status=${filterBy}`, setApiHeader());
 
-//Reset password API
-export const resetPasswordAPI = async (passwordData: IResetPassword) =>
-  await staffAPI.patch("/auth", passwordData, setApiHeader());
+// update complaint
+export const updateComplaintAPI = async (
+  _id: string,
+  data: IComplaintUpdateByStaff
+) => await staffAPI.patch(`/complaints/${_id}`, data, setApiHeader());

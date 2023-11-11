@@ -48,7 +48,7 @@ const LoggedInHeaderButton = ({ children, currentUser, role }: Props) => {
           <div className="flex gap-6">
             <button className="header-btn">
               <img
-                className="h-7 rounded-sm mr-3"
+                className="h-7 rounded-full w-7 mr-3"
                 src={currentUser?.currentUser?.profilePic || defaultAvatarImg}
                 alt="Profile image"
               />
