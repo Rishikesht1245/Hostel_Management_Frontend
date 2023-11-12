@@ -33,3 +33,6 @@ export const searchIcon =
 
 export const editIcon =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1699252121/edit_gezlhl.png";
+
+export const deleteIcon =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1699804753/bin_zr1d33.png";

@@ -2,6 +2,7 @@ import { chiefWardenAPI } from "../config/api";
 import { ILogin, IResetPassword } from "../interfaces/auth";
 import { AddBlock } from "../interfaces/blocks";
 import { IComplaintUpdate } from "../interfaces/complaints";
+import { INotice } from "../interfaces/notice";
 import { IMealPlan } from "../interfaces/staff";
 import { setApiHeader } from "../utils/apiHeader";
 
@@ -107,3 +108,29 @@ export const fetchAllComplaintsAPI = async (filterBy: string = "") =>
 // update complaints
 export const updateComplaintAPI = async (_id: string, data: IComplaintUpdate) =>
   await chiefWardenAPI.patch(`/complaints/${_id}`, data, setApiHeader());
+
+// -------------------------- Notices ------------------------------- //
+// all notices
+export const fetchAllNoticesAPI = async () =>
+  await chiefWardenAPI.get("/notices/all", setApiHeader());
+
+// Chang notice visibility
+export const changeNoticeVisibilityAPI = async (_id: string, data: INotice) =>
+  await chiefWardenAPI.patch(`/notices/${_id}`, data, setApiHeader());
+
+// New Notice
+export const newNoticeAPI = async (formData: INotice) =>
+  await chiefWardenAPI.post("/notices", formData, setApiHeader());
+
+// Update notice
+export const updateNoticeAPI = async (_id: string, formData: INotice) =>
+  await chiefWardenAPI.put(`notices/${_id}`, formData, setApiHeader());
+
+//  Delete notice
+export const deleteNoticeAPI = async (_id: string) =>
+  await chiefWardenAPI.delete(`/notices/${_id}`, setApiHeader());
+
+// Notice statistics
+export const noticeStatisticsAPI = async () => {
+  await chiefWardenAPI.get("/notices/statistics", setApiHeader());
+};
