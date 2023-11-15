@@ -78,3 +78,7 @@ export const updateStudentPaymentAPI = async (
   studentId: string,
   formData: { additionalAmount: number }
 ) => await staffAPI.patch(`/students/${studentId}`, formData, setApiHeader());
+
+// fetch all payments
+export const fetchAllPaymentsAPI = async (search: string = "") =>
+  await staffAPI.get(`/payments?refId=${search}`, setApiHeader());
