@@ -60,3 +60,21 @@ export const updateComplaintAPI = async (
   _id: string,
   data: IComplaintUpdateByStaff
 ) => await staffAPI.patch(`/complaints/${_id}`, data, setApiHeader());
+
+// ---------------- Warden --------------------------- //
+// -- students and payments
+//fetch all students
+export const fetchAllStudentsAPI = async (
+  filterBy: string = "",
+  searchInput: string = ""
+) =>
+  await staffAPI.get(
+    `/students?status=${filterBy}&name=${searchInput}`,
+    setApiHeader()
+  );
+
+// Update student Payment
+export const updateStudentPaymentAPI = async (
+  studentId: string,
+  formData: { additionalAmount: number }
+) => await staffAPI.patch(`/students/${studentId}`, formData, setApiHeader());

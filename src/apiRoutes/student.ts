@@ -1,5 +1,6 @@
 import { studentAPI } from "../config/api";
 import { ILogin, IResetPassword } from "../interfaces/auth";
+import { SuccessfulPayment } from "../interfaces/payment";
 import { IStudent } from "../interfaces/student";
 import { setApiHeader } from "../utils/apiHeader";
 
@@ -39,6 +40,11 @@ export const updateMealPlanAPI = async (data: object) =>
   await studentAPI.post("/mealPlan", data, setApiHeader());
 
 //---------------------------- PROFILE ----------------------------- //
+
+// Single student data
+export const currentStudentAPI = async () =>
+  await studentAPI.get("/", setApiHeader());
+
 // Update profile image
 export const changeProfileImageAPI = async (imageAsBase64: string) =>
   await studentAPI.patch(
@@ -57,3 +63,17 @@ export const newComplaintAPI = async (data: {
   department: "warden" | "chef" | "maintenance";
   message: string;
 }) => await studentAPI.post("/complaints", data, setApiHeader());
+
+// --------------------------- PAYMENTS -------------------------- //
+
+// fetch payments
+export const fetchPaymentsAPI = async () =>
+  await studentAPI.get("/payments", setApiHeader());
+
+// initiate payment API
+export const initiatePaymentAPI = async (amount: number) =>
+  await studentAPI.patch("/payments", { amount }, setApiHeader());
+
+// Successful payments API
+export const successfulPaymentAPI = async (data: SuccessfulPayment) =>
+  await studentAPI.post("/payments", data, setApiHeader());

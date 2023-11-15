@@ -119,3 +119,12 @@ export const updateStudentSchema = yup.object().shape({
 export const changeMealPlanSchema = yup.object().shape({
   mealPlan: yup.string().required("Meal Plan is required").trim().min(1),
 });
+
+// New payment Schema
+export const newPaymentSchema = yup.object().shape({
+  amount: yup
+    .number()
+    .min(1, "Min. ₹1")
+    .required("Enter an amount")
+    .max(15000, "Max. ₹15000"),
+});

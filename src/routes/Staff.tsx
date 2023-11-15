@@ -11,6 +11,8 @@ const MealPlans = lazy(() => import("../pages/staff/MealPlans.chef"));
 const Maintenance = lazy(() => import("../pages/staff/Maintenance"));
 const Profile = lazy(() => import("../pages/staff/Profile"));
 const Complaints = lazy(() => import("../pages/staff/Complaints"));
+const Students = lazy(() => import("../pages/staff/Students"));
+const Payments = lazy(() => import("../pages/staff/Payments.warden"));
 
 const Staff = () => {
   return (
@@ -70,6 +72,26 @@ const Staff = () => {
               element={
                 <Suspense fallback={<Loader />}>
                   <Maintenance />
+                </Suspense>
+              }
+            />
+          </Route>
+
+          {/* Warden */}
+          <Route element={<ProtectedRoute role="staff" department="warden" />}>
+            <Route
+              path="students"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Students />
+                </Suspense>
+              }
+            />
+            <Route
+              path="payments"
+              element={
+                <Suspense fallback={<Loader />}>
+                  <Payments />
                 </Suspense>
               }
             />

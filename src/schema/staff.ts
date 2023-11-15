@@ -102,3 +102,12 @@ export const newStaffSchema = yup.object().shape({
     .min(4, "Invalid country")
     .max(16, "Invalid country"),
 });
+
+// Monthly payment schema
+export const monthlyPaymentSchema = yup.object().shape({
+  additionalAmount: yup
+    .number()
+    .required()
+    .integer("Invalid number")
+    .moreThan(-1, "Invalid number"),
+});
