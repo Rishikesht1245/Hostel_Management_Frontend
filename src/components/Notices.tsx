@@ -64,6 +64,6 @@ function Notices({ fetchHandler, className }: Props) {
 
 interface Props {
   fetchHandler: () => Promise<AxiosResponse<any, any>>;
-  className: string;
+  className?: string;
 }
 export default Notices;

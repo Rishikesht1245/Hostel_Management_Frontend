@@ -35,3 +35,18 @@ export interface IStudent {
 }
 
 export type StudentStatus = "pending" | "resident" | "rejected" | "departed";
+
+export interface IMealPlanResponse {
+  _id: string;
+  title: string;
+  price: number;
+  breakfast: string;
+  lunch: string;
+  evening: string;
+  dinner: string;
+  active: true;
+  subscribers: number;
+  createdAt: string;
+  updatedAt: string;
+  __v: number;
+}

@@ -77,3 +77,11 @@ export const initiatePaymentAPI = async (amount: number) =>
 // Successful payments API
 export const successfulPaymentAPI = async (data: SuccessfulPayment) =>
   await studentAPI.post("/payments", data, setApiHeader());
+
+// --------------------------- DASHBOARD -------------------------- //
+export const fetchNoticesAPI = async () =>
+  await studentAPI.get("/notices", setApiHeader());
+
+// fetch meal plans
+export const fetchMealPlanAPI = async () =>
+  await studentAPI.get("/mealPlan", setApiHeader());
