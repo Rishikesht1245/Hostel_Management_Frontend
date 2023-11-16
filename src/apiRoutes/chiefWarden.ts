@@ -130,7 +130,24 @@ export const updateNoticeAPI = async (_id: string, formData: INotice) =>
 export const deleteNoticeAPI = async (_id: string) =>
   await chiefWardenAPI.delete(`/notices/${_id}`, setApiHeader());
 
+// -------------------------- DASHBOARD  ------------------------------- //
+
 // Notice statistics
-export const noticeStatisticsAPI = async () => {
+export const noticeStatisticsAPI = async () =>
   await chiefWardenAPI.get("/notices/statistics", setApiHeader());
-};
+
+//  Payment statistics
+export const paymentStatisticsAPI = async () =>
+  await chiefWardenAPI.get("/students/paymentStatus", setApiHeader());
+
+//  Complaint statistics
+export const complaintStatisticsAPI = async () =>
+  await chiefWardenAPI.get("/complaints/statistics", setApiHeader());
+
+// Occupancy statistics
+export const occupancyStatisticsAPI = async () =>
+  await chiefWardenAPI.get("/blocks/occupancyStatistics", setApiHeader());
+
+// Yearly revenue
+export const yearlyRevenueAPI = async () =>
+  await chiefWardenAPI.get("/payments/yearlyRevenue", setApiHeader());

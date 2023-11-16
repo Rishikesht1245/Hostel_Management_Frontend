@@ -24,3 +24,12 @@ export const notFoundImg =
 
 export const errorImg =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1699166347/error_tg5t25.png";
+
+export const studentRisingHandImg =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1700119048/studentattendance_ufg07j.png";
+
+export const noticeBoardImg =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1700119050/notice_board_v1qbxv.png";
+
+export const complaintsImg =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1700119050/complaint_lxtfqa.png";
