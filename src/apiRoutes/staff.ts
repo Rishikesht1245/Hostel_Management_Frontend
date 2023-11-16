@@ -82,3 +82,12 @@ export const updateStudentPaymentAPI = async (
 // fetch all payments
 export const fetchAllPaymentsAPI = async (search: string = "") =>
   await staffAPI.get(`/payments?refId=${search}`, setApiHeader());
+
+//------------------------- DASHBOARD -------------------------------//
+// all notices for staffs
+export const fetchNoticesAPI = async () =>
+  await staffAPI.get("/notices", setApiHeader());
+
+// dashboard statistics
+export const dashBoardStatisticsAPI = async () =>
+  await staffAPI.get("/dashboard", setApiHeader());
