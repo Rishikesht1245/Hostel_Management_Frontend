@@ -91,3 +91,7 @@ export const fetchNoticesAPI = async () =>
 // dashboard statistics
 export const dashBoardStatisticsAPI = async () =>
   await staffAPI.get("/dashboard", setApiHeader());
+
+// --------------------------- CHATS -------------------------- //
+export const fetchAllChatsAPI = async () =>
+  await staffAPI.get("/chats", setApiHeader());

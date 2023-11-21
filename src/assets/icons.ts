@@ -36,3 +36,6 @@ export const editIcon =
 
 export const deleteIcon =
   "https://res.cloudinary.com/djcn6luvw/image/upload/v1699804753/bin_zr1d33.png";
+
+export const sendIcon =
+  "https://res.cloudinary.com/djcn6luvw/image/upload/v1700302261/direct-instagram_yhtrzu.png";

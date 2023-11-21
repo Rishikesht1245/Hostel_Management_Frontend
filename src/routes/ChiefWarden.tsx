@@ -14,6 +14,7 @@ const Students = lazy(() => import("../pages/chiefWarden/Students"));
 const Profile = lazy(() => import("../pages/chiefWarden/Profile"));
 const Complaints = lazy(() => import("../pages/chiefWarden/Complaints"));
 const Notices = lazy(() => import("../pages/chiefWarden/Notices"));
+const Chats = lazy(() => import("../pages/chiefWarden/Chats"));
 
 const ChiefWarden = () => {
   return (
@@ -89,6 +90,14 @@ const ChiefWarden = () => {
             element={
               <Suspense fallback={<Loader />}>
                 <Notices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/chat"
+            element={
+              <Suspense fallback={<Loader />}>
+                <Chats />
               </Suspense>
             }
           />

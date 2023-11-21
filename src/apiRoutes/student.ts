@@ -85,3 +85,7 @@ export const fetchNoticesAPI = async () =>
 // fetch meal plans
 export const fetchMealPlanAPI = async () =>
   await studentAPI.get("/mealPlan", setApiHeader());
+
+// --------------------------- CHATS -------------------------- //
+export const fetchAllChatsAPI = async () =>
+  await studentAPI.get("/chats", setApiHeader());
