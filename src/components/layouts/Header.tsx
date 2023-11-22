@@ -33,7 +33,7 @@ const Header = ({ role, newAdmission }: Props) => {
     <header className="h-16 bg-white flex shadow-lg">
       <div className="h-16 container flex my-auto content-center justify-between gap-1 items-center">
         {/* Header Icon */}
-        <Link to={"/"}>
+        <Link to={role === "student" ? "/" : "/staffs/login"}>
           <span className="flex items-center gap-2">
             <img className="w-9" src={hostelIcon} alt="Hostel Management" />
             <h1 className="text-sm lg:text-base">Hostel Management</h1>
