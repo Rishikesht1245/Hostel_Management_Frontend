@@ -40,7 +40,7 @@ The application caters to three types of users:
 1. Clone the repository:
 
 ```bash
-       git clone https://github.com/your-username/hostel-management-frontend.git
+       git clone https://github.com/Rishikesht1245/Hostel_Management_Frontend.git
 ```
 
 2. Navigate to the project directory:
