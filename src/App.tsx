@@ -31,7 +31,7 @@ function App() {
           }
         />
         {/* not found */}
-        <Route path="/*" element={<NotFound />} />
+        <Route path="/*" element={<NotFound role="student" />} />
       </Routes>
       <Toaster />
     </>

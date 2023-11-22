@@ -4,11 +4,8 @@ import ModalRow from "../../components/UI/ModalRow";
 import Table, { TableColumn, Media } from "../../components/Table";
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
-  newNoticeAPI,
   changeNoticeVisibilityAPI,
   fetchAllNoticesAPI,
-  updateNoticeAPI,
-  noticeStatisticsAPI,
   deleteNoticeAPI,
 } from "../../apiRoutes/chiefWarden";
 import { toast } from "react-hot-toast";
