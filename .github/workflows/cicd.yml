@@ -1,0 +1,26 @@
+name: Deploy React frontend App to EC2
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Build Docker image
+        run: sudo docker build -t hostel-frontend-image .
+
+      - name: Stop previous container (if exists)
+        run: sudo docker stop hostel-frontend-container || true
+
+      - name: Remove previous container (if exists)
+        run: sudo docker rm hostel-frontend-container || true
+
+      - name: Run Docker container
+        run: sudo docker run -d --name hostel-frontend-container -p 5173:80 hostel-frontend-image
