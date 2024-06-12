@@ -2,8 +2,8 @@
 FROM node:lts-alpine as build-stage
 
 # Set environment variables
-ENV VITE_API_URL='http://localhost:3000/api/v1' \
-    VITE_BACKEND_CHAT='ws://localhost:3000' \
+ENV VITE_API_URL='http://51.20.44.124:3000/api/v1' \
+    VITE_BACKEND_CHAT='ws://51.20.44.124:3000' \
     VITE_RAZORPAY_API_ID='rzp_test_52pMKUsVhUtk2U'
 
 # Set working directory
@@ -23,6 +23,9 @@ RUN npm run build
 
 # Use Nginx to serve the React app
 FROM nginx:stable-alpine
+
+# Copy custom nginx configuration
+COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy built app from build stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
