@@ -27,7 +27,7 @@ FROM nginx:stable-alpine
 # Copy built app from build stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html
 
-# Expose port 80
+# Expose port 80 nginx
 EXPOSE 80
 
 # Command to run nginx : to run nginx in the foreground.
