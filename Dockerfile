@@ -24,7 +24,7 @@ RUN npm run build
 # Use Nginx to serve the React app
 FROM nginx:stable-alpine
 
-# Copy custom nginx configuration
+# Copy custom nginx configuration.
 COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy built app from build stage
