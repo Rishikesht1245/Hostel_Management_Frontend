@@ -2,8 +2,8 @@
 FROM node:lts-alpine as build-stage
 
 # Set environment variables
-ENV VITE_API_URL='http://51.20.44.124:3000/api/v1' \
-    VITE_BACKEND_CHAT='ws://51.20.44.124:3000' \
+ENV VITE_API_URL='http://13.53.190.180:3000/api/v1' \
+    VITE_BACKEND_CHAT='ws://13.53.190.180:3000' \
     VITE_RAZORPAY_API_ID='rzp_test_52pMKUsVhUtk2U'
 
 # Set working directory
