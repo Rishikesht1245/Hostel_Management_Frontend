@@ -5,7 +5,7 @@ services:
     startCommand: npm run start
     env:
       - key: VITE_API_URL
-        value: http://localhost:3000/api/v1
+        value: http://13.53.190.180:3000/api/v1
       - key: VITE_BACKEND_CHAT
         value: ws://localhost:3000
       - key: VITE_RAZORPAY_API_ID

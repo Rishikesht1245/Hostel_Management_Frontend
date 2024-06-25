@@ -1,0 +1,25 @@
+hostel4u.xyz {
+    root * /usr/share/caddy
+    file_server
+    encode gzip
+
+    log {
+        output file /var/log/caddy/access.log {
+            roll_size 10mb
+            roll_keep 10
+            roll_keep_for 336h
+        }
+    }
+
+    header {
+        Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+        X-Content-Type-Options "nosniff"
+        X-Frame-Options "DENY"
+        Referrer-Policy "no-referrer-when-downgrade"
+        Content-Security-Policy "default-src 'self'; frame-ancestors 'none';"
+    }
+}
+
+:80 {
+    redir https://hostel4u.xyz permanent
+}
