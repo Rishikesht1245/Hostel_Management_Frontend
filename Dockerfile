@@ -32,6 +32,7 @@ COPY Caddyfile /etc/caddy/Caddyfile
 
 # Expose port 80
 EXPOSE 80
+# Expose port 443 : HTTPS
 EXPOSE 443
 
 # Command to run Caddy
