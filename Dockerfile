@@ -3,7 +3,7 @@ FROM node:lts-alpine as build-stage
 
 # Set environment variables
 ENV VITE_API_URL='https://api.hostel4u.xyz/api/v1' \
-    VITE_BACKEND_CHAT='ws://api.hostel4u.xyz' \
+    VITE_BACKEND_CHAT='wss://api.hostel4u.xyz' \
     VITE_RAZORPAY_API_ID='rzp_test_52pMKUsVhUtk2U'
 
 # Set working directory
